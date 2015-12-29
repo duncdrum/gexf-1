@@ -35,9 +35,9 @@
     pdfmenubar=true,        % show Acrobat‚Äôs menu?
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
-    pdftitle={GEXF 1.2draft Primer},    % title
+    pdftitle={GEXF 1.3draft Primer},    % title
     pdfauthor={Sebastien Heymann},     % author
-    pdfsubject={GEXF 1.2draft Primer},   % subject of the document
+    pdfsubject={GEXF 1.3draft Primer},   % subject of the document
     pdfcreator={Gephi},   % creator of the document
     pdfproducer={Gephi}, % producer of the document
     pdfkeywords={gephi gexf graph}, % list of keywords
@@ -53,7 +53,7 @@
 
 
 %opening
-\title{GEXF 1.2draft Primer}
+\title{GEXF 1.3draft Primer}
 \author{GEXF Working Group}
 
 \begin{document}
@@ -69,7 +69,7 @@ GEXF Primer is a non-normative document intended to provide an easily readable d
 \section{Introduction} \label{introduction}
 
 \paragraph{}
-This document, GEXF Primer, provides an description of GEXF, and should be used alongside the formal descriptions of the language contained in the GEXF specification. The intended audience of this document includes application developers whose programs read and write GEXF files, and users who want to communicate with programs using GEXF import/export. The text assumes that you have a basic understanding of XML 1.0 and  XML-Namespaces. Basic knowledge of XML Schema is also assumed for some parts of this document. Each major section of the primer introduces new features of the language, and describes those features in the context of concrete examples.
+This document, GEXF Primer, provides an description of GEXF, and should be used alongside the formal descriptions of the language contained in the GEXF specification. The intended audience of this document includes application developers whose programs read and write GEXF files, and users who want to communicate with programs using GEXF import/export. The text assumes that you have a basic understanding of XML 1.1 and  XML-Namespaces. Basic knowledge of XML Schema is also assumed for some parts of this document. Each major section of the primer introduces new features of the language, and describes those features in the context of concrete examples.
 
 Section 2 covers the basic mechanisms of GEXF. It describes how to declare a simple graph by defining its nodes and edges and how to add simple user data to the graph.
 
@@ -97,12 +97,12 @@ This is a dummy graph:
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={Hello world!},label=helloworld]
-<?xml version="1.0" encoding="UTF-8"?>
-<gexf xmlns="http://www.gexf.net/1.2draft"
+<?xml version="1.1" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3draft"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.gexf.net/1.2draft
-                             http://www.gexf.net/1.2draft/gexf.xsd"
-      version="1.2">
+       xsi:schemaLocation="http://www.gexf.net/1.3draft
+                             http://www.gexf.net/1.3draft/gexf.xsd"
+      version="1.3">
   <meta lastmodifieddate="2009-03-20">
     <creator>Gephi.org</creator>
     <description>A hello world! file</description>
@@ -127,12 +127,12 @@ In this section we discuss the parts of the document which are common to all GEX
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={Header},label=header]
-<?xml version="1.0" encoding="UTF-8"?>
-<gexf xmlns="http://www.gexf.net/1.2draft"
+<?xml version="1.1" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3draft"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.gexf.net/1.2draft
-                             http://www.gexf.net/1.2draft/gexf.xsd"
-      version="1.2">
+       xsi:schemaLocation="http://www.gexf.net/1.3draft
+                             http://www.gexf.net/1.3draft/gexf.xsd"
+      version="1.3">
   <meta lastmodifieddate="2009-03-20">
     <creator>Gephi.org</creator>
     <description>A hello world! file</description>
@@ -143,23 +143,23 @@ In this section we discuss the parts of the document which are common to all GEX
 \end{lstlisting}
 
 \paragraph{}
-The first line of the document is an XML process instruction which defines that the document adheres to the XML 1.0 standard and that the encoding of the document is UTF-8, the standard encoding for XML documents. Of course other encodings can be chosen for GEXF documents.
+The first line of the document is an XML process instruction which defines that the document adheres to the XML 1.1 standard and that the encoding of the document is UTF-8, the standard encoding for XML documents. Of course other encodings can be chosen for GEXF documents.
 
 \paragraph{}
-The second line contains the root-element element of a GEXF document: the gexf element. The gexf element, like all other GEXF elements, belongs to the namespace \begin{footnotesize}http://www.gexf.net/1.2draft\end{footnotesize}. For this reason we define this namespace as the default namespace in the document by adding the XML Attribute \begin{footnotesize}xmlns="http://www.gexf.net/1.2draft"\end{footnotesize} to it. The two other XML Attributes are needed to specify the XML Schema for this document. In our example we use the standard schema for GEXF documents located on the gexf.net server. The first attribute, \begin{footnotesize}xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\end{footnotesize}, defines xsi as the XML Schema namespace. The second attribute, \begin{footnotesize}xsi:schemaLocation ="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd"\end{footnotesize}, defines the XML Schema location for all elements in the GEXF namespace.
+The second line contains the root-element element of a GEXF document: the gexf element. The gexf element, like all other GEXF elements, belongs to the namespace \begin{footnotesize}http://www.gexf.net/1.3draft\end{footnotesize}. For this reason we define this namespace as the default namespace in the document by adding the XML Attribute \begin{footnotesize}xmlns="http://www.gexf.net/1.3draft"\end{footnotesize} to it. The two other XML Attributes are needed to specify the XML Schema for this document. In our example we use the standard schema for GEXF documents located on the gexf.net server. The first attribute, \begin{footnotesize}xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\end{footnotesize}, defines xsi as the XML Schema namespace. The second attribute, \begin{footnotesize}xsi:schemaLocation ="http://www.gexf.net/1.3draft http://www.gexf.net/1.3draft/gexf.xsd"\end{footnotesize}, defines the XML Schema location for all elements in the GEXF namespace.
 
 \paragraph{}
 The XML Schema reference is not required but it provides means to validate the document and is therefore strongly recommended.
 
 \paragraph{}
-The \begin{footnotesize}meta\end{footnotesize} element contains additionnal information about the network. Element leafs are assumed to be text, and \begin{footnotesize}lastmodifieddate\end{footnotesize} is an international standard date (yyyy-mm-dd). The \begin{footnotesize}graph\end{footnotesize} element must be declared after the \begin{footnotesize}meta\end{footnotesize} element.
+The \begin{footnotesize}meta\end{footnotesize} element contains additional information about the network. Element leafs are assumed to be text, and \begin{footnotesize}lastmodifieddate\end{footnotesize} is an international standard date (yyyy-mm-dd). The \begin{footnotesize}graph\end{footnotesize} element must be declared after the \begin{footnotesize}meta\end{footnotesize} element.
 
 \paragraph{}
-GEXF document is specified in the \href{http://relaxng.org/compact-tutorial-20030326.html}{RelaxNG Compact} file \href{http://www.gexf.net/1.2draft/gexf.rnc}{gexf.rc}. Header is ruled by the following declaration :
+GEXF document is specified in the \href{http://relaxng.org/compact-tutorial-20030326.html}{RelaxNG Compact} file \href{http://www.gexf.net/1.3draft/gexf.rnc}{gexf.rc}. Header is ruled by the following declaration :
 
 \lstset{ style=rnc }
 \begin{lstlisting}[caption={Header Specification},label=headerRNC]
-default namespace = "http://www.gexf.net/1.2draft"
+default namespace = "http://www.gexf.net/1.3draft"
 namespace     rng = "http://relaxng.org/ns/structure/1.0"
 datatypes     xsd = "http://www.w3.org/2001/XMLSchema-datatypes"
 
@@ -168,7 +168,7 @@ start = element gexf { gexf-content }
 
 # Tree
 gexf-content =
-    attribute version { string "1.2" }
+    attribute version { string "1.3" }
   & attribute variant { xsd:string }?
   & (element meta { meta-content }?
   ,  element graph { graph-content })
@@ -206,7 +206,7 @@ Graphs in GEXF are mixed, in other words, they can contain directed and undirect
 
 The default direction is declared as the optional XML-attribute \begin{footnotesize}defaultedgetype\end{footnotesize} of the \begin{footnotesize}graph\end{footnotesize} element. The three possible values for this XML-attribute are \textit{directed}, \textit{undirected} and \textit{mutual}. Note that the default direction is optional and would be assumed as \textit{undirected}.
 
-The optional XML-attribute \begin{footnotesize}mode\end{footnotesize} set the kind of network: static or dynamic. Last one provides time support (see  the section \ref{dynamics} on Dynamics). Static mode is assumed by default.
+The optional XML-attribute \begin{footnotesize}mode\end{footnotesize} set the kind of network: static, dynamic or slice for a collection of files encoding a dynamic network. The last two provide time support (see  the section \ref{dynamics} on Dynamics). Static mode is assumed by default.
 
 The \begin{footnotesize}edges\end{footnotesize} element must be declared after the \begin{footnotesize}nodes\end{footnotesize} element.
 
@@ -308,9 +308,14 @@ Edges in the graph are declared by the \begin{footnotesize}edge\end{footnotesize
 
 Edges with only one endpoint, also called loops, selfloops, or reflexive edges, are defined by having the same value for source and target.
 
-Each edge can have a optional XML-attribute \begin{footnotesize}label\end{footnotesize}, which is a string.
+Each edge can have an optional XML-attribute \begin{footnotesize}label\end{footnotesize}, which is a string.
 
-The optional XML-attribute \begin{footnotesize}type\end{footnotesize} declares if the edge is \textit{directed}, \textit{undirected} or \textit{mutual} (directed \textit{from source to target and from target to source}). If the direction is not explicitely defined, the default direction is applied to this edge as defined in the enclosing graph.
+The optional XML-attribute \begin{footnotesize}type\end{footnotesize} declares if the edge is \textit{directed}, \textit{undirected} or \textit{mutual} (directed \textit{from source to target and from target to source}). If the direction is not explicitly defined, the default direction is applied to this edge as defined in the enclosing graph.
+
+In addition the optional XML-attribute \begin{footnotesize}kind\end{footnotesize} can be used to further scecify edges in e.g. multi-graphs. 
+
+% we need an example here preferably of a multi-graph with self-loops.
+
 
 The weight of the edge is set by the optional XML-attribute \begin{footnotesize}weight\end{footnotesize} and is a float.
 
@@ -356,7 +361,7 @@ weight-type = [ a:defaultValue = "1.0" ]
 In the previous section we discussed how to describe the topology of a graph in GEXF. While pure topological information may be sufficient for some applications, these days focus is made on network analysis based on data attributes. Data are everywhere.
 
 \paragraph{}
-A bunch of data can be stored within attributes. The concept is the same as table data or SQL. An attribute has a title/name and a value. Attribute‚Äôs name/title must be declared for the whole graph. It could be for instance ‚Äúdegree‚Äù, ‚Äúvalid‚Äù or ‚Äúurl‚Äù. Besides the name of the attribute a column also contains the type.
+A bunch of data can be stored within attributes. The concept is the same as table data or SQL. An attribute has a title/name and a value. Attribute's name/title must be declared for the whole graph. It could be for instance "degree"Äù, "valid" or "url"Äù. Besides the name of the attribute another column  contains the type.
 
 \subsubsection{Data types}
 
@@ -368,12 +373,12 @@ Each Node of this graph has three attributes : an url, an indegree value and a b
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={A (small) Web Graph},label=webgraph]
-<?xml version="1.0" encoding="UTF-8"?>
-<gexf xmlns="http://www.gexf.net/1.2draft"
+<?xml version="1.1" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3draft"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.gexf.net/1.2draft
-                             http://www.gexf.net/1.2draft/gexf.xsd"
-      version="1.2">
+       xsi:schemaLocation="http://www.gexf.net/1.3draft
+                             http://www.gexf.net/1.3draft/gexf.xsd"
+      version="1.3">
   <meta lastmodifieddate="2009-03-20">
     <creator>Gephi.org</creator>
     <description>A Web network</description>
@@ -635,134 +640,134 @@ When it is applied to a liststring attribute, it gives all possible elements of 
 </node>
 \end{lstlisting}
 
-\section{Advanced Concepts I: Hierarchy structure} \label{hierarchy}
-
-\subsection{Introduction}
-
-GEXF format allows creating hierarchical graph structure essentially for representing clustering. We modelize both a tree structure of ancestors and descendents, and a flat graph of nodes bound by edges.
-
-\begin{figure}[!ht]
-  \begin{center}
-  \includegraphics[width=10cm,keepaspectratio=true]{res/hierarchy.png}
-  \caption{Graph tree with a virtual edge from a cluster to a leaf}
-  \end{center}
-\end{figure}
-
-\paragraph{}
-Two ways are available:
-\begin{enumerate}
- \item Nodes can simply host other nodes and so on.
- \item Each node refers to a parent node id with the XML-attribute \begin{footnotesize}pid\end{footnotesize}.
-\end{enumerate}
-
-\lstset{ style=rnc }
-\begin{lstlisting}[caption={Hierarchy Specification},label=hierarchyRNC]
-# Extension Point
-node-content &=
-    attribute pid { id-type }?
-  & element nodes { nodes-content }?
-  & element edges { edges-content }?
-\end{lstlisting}
-
-The first style is preferred when the structure written is previously ordered. Sequential reading of this kind of GEXF is safe because no node reference is used. But in the case your program can't provide this, the second way allows writing (and then reading) nodes randomly, but linear reading is at your own risks.
-
-\subsection{Sequential-safe Reading}
-
-\lstset{ style=gexf }
-\begin{lstlisting}[caption={First way},label=hierarchy1]
-    <graph mode="static" defaultedgetype="directed">
-        <nodes>
-          <node id="a" label="Kevin Bacon">
-            <nodes>
-              <node id="b" label="God">
-                <nodes>
-                  <node id="c" label="human1"/>
-                  <node id="d" label="human2"/>
-                </nodes>
-              </node>
-              <node id="e" label="Me">
-                <nodes>
-                  <node id="f" label="frog1"/>
-                  <node id="g" label="frog2"/>
-                </nodes>
-              </node>
-            </nodes>
-          </node>
-        </nodes>
-        <edges>
-            <edge id="0" source="b" target="e" />
-            <edge id="1" source="c" target="d" />
-            <edge id="2" source="g" target="b" />
-            <edge id="3" source="f" target="a" />
-        </edges>
-    </graph>
-\end{lstlisting}
-
-Note that edges are not necessarily written at the end:
-\lstset{ style=gexf }
-\begin{lstlisting}[caption={First way with edges inside clusters},label=hierarchy11]
-    <graph mode="static" defaultedgetype="directed">
-        <nodes>
-          <node id="a" label="Kevin Bacon">
-            <nodes>
-              <node id="b" label="God">
-                <nodes>
-                  <node id="c" label="human1"/>
-                  <node id="d" label="human2"/>
-                </nodes>
-                <edges>
-                  <edge id="0" source="c" target="d" />
-                </edges>
-              </node>
-              <node id="e" label="Me">
-                <nodes>
-                  <node id="f" label="frog1"/>
-                  <node id="g" label="frog2"/>
-                </nodes>
-              </node>
-            </nodes>
-            <edges>
-              <edge id="1" source="b" target="e" />
-              <edge id="3" source="f" target="a" />
-              <edge id="2" source="g" target="b" />
-            </edges>
-          </node>
-        </nodes>
-        <edges />
-    </graph>
-\end{lstlisting}
-
-\subsection{Random Writing}
-
-If you can't structurize your graph topology before writing a GEXF file, you may use the second style. Nodes sent to Gephi from a live data source, i.e. a web crawler, are written like this. Note that edges are always written randomly.
-
-\lstset{ style=gexf }
-\begin{lstlisting}[caption={Second way},label=hierarchy2]
-<nodes>
-  <node id="a" label="Kevin Bacon" />
-  <node id="b" label="God" pid="a" />
-  <node id="c" label="human1" pid="b" />
-  <node id="d" label="human2" pid="b" />
-  <node id="e" label="Me" pid="a" />
-  <node id="f" label="frog1" pid="e" />
-  <node id="g" label="frog2" pid="e" />
-</nodes>
-\end{lstlisting}
-
-With using \begin{footnotesize}pid\end{footnotesize}, node order doesn't matter. An implementation should manage the case when a node reference (pid) is used before the node declaration. This listings could also be:
-
-\lstset{ style=gexf }
-\begin{lstlisting}[caption={Second way randomized},label=hierarchy22]
-<nodes>
-  <node id="g" label="frog2" pid="e" />
-  <node id="a" label="Kevin Bacon" />
-  <node id="c" label="human1" pid="b" />
-  <node id="b" label="God" pid="a" />
-  <node id="e" label="Me" pid="a" />
-  <node id="d" label="human2" pid="b" />
-  <node id="f" label="frog1" pid="e" />
-</nodes>
-\end{lstlisting}
+%\section{Advanced Concepts I: Hierarchy structure} \label{hierarchy}
+%
+%\subsection{Introduction}
+%
+%GEXF format allows creating hierarchical graph structure essentially for representing clustering. We model both a tree structure of ancestors and descendents, and a flat graph of nodes bound by edges.
+%
+%\begin{figure}[!ht]
+%  \begin{center}
+%  \includegraphics[width=10cm,keepaspectratio=true]{res/hierarchy.png}
+%  \caption{Graph tree with a virtual edge from a cluster to a leaf}
+%  \end{center}
+%\end{figure}
+%
+%\paragraph{}
+%Two ways are available:
+%\begin{enumerate}
+% \item Nodes can simply host other nodes and so on.
+% \item Each node refers to a parent node id with the XML-attribute \begin{footnotesize}pid\end{footnotesize}.
+%\end{enumerate}
+%
+%\lstset{ style=rnc }
+%\begin{lstlisting}[caption={Hierarchy Specification},label=hierarchyRNC]
+%# Extension Point
+%node-content &=
+%    attribute pid { id-type }?
+%  & element nodes { nodes-content }?
+%  & element edges { edges-content }?
+%\end{lstlisting}
+%
+%The first style is preferred when the structure written is previously ordered. Sequential reading of this kind of GEXF is safe because no node reference is used. But in the case your program can't provide this, the second way allows writing (and then reading) nodes randomly, but linear reading is at your own risks.
+%
+%\subsection{Sequential-safe Reading}
+%
+%\lstset{ style=gexf }
+%\begin{lstlisting}[caption={First way},label=hierarchy1]
+%    <graph mode="static" defaultedgetype="directed">
+%        <nodes>
+%          <node id="a" label="Kevin Bacon">
+%            <nodes>
+%              <node id="b" label="God">
+%                <nodes>
+%                  <node id="c" label="human1"/>
+%                  <node id="d" label="human2"/>
+%                </nodes>
+%              </node>
+%              <node id="e" label="Me">
+%                <nodes>
+%                  <node id="f" label="frog1"/>
+%                  <node id="g" label="frog2"/>
+%                </nodes>
+%              </node>
+%            </nodes>
+%          </node>
+%        </nodes>
+%        <edges>
+%            <edge id="0" source="b" target="e" />
+%            <edge id="1" source="c" target="d" />
+%            <edge id="2" source="g" target="b" />
+%            <edge id="3" source="f" target="a" />
+%        </edges>
+%    </graph>
+%\end{lstlisting}
+%
+%Note that edges are not necessarily written at the end:
+%\lstset{ style=gexf }
+%\begin{lstlisting}[caption={First way with edges inside clusters},label=hierarchy11]
+%    <graph mode="static" defaultedgetype="directed">
+%        <nodes>
+%          <node id="a" label="Kevin Bacon">
+%            <nodes>
+%              <node id="b" label="God">
+%                <nodes>
+%                  <node id="c" label="human1"/>
+%                  <node id="d" label="human2"/>
+%                </nodes>
+%                <edges>
+%                  <edge id="0" source="c" target="d" />
+%                </edges>
+%              </node>
+%              <node id="e" label="Me">
+%                <nodes>
+%                  <node id="f" label="frog1"/>
+%                  <node id="g" label="frog2"/>
+%                </nodes>
+%              </node>
+%            </nodes>
+%            <edges>
+%              <edge id="1" source="b" target="e" />
+%              <edge id="3" source="f" target="a" />
+%              <edge id="2" source="g" target="b" />
+%            </edges>
+%          </node>
+%        </nodes>
+%        <edges />
+%    </graph>
+%\end{lstlisting}
+%
+%\subsection{Random Writing}
+%
+%If you can't structurize your graph topology before writing a GEXF file, you may use the second style. Nodes sent to Gephi from a live data source, i.e. a web crawler, are written like this. Note that edges are always written randomly.
+%
+%\lstset{ style=gexf }
+%\begin{lstlisting}[caption={Second way},label=hierarchy2]
+%<nodes>
+%  <node id="a" label="Kevin Bacon" />
+%  <node id="b" label="God" pid="a" />
+%  <node id="c" label="human1" pid="b" />
+%  <node id="d" label="human2" pid="b" />
+%  <node id="e" label="Me" pid="a" />
+%  <node id="f" label="frog1" pid="e" />
+%  <node id="g" label="frog2" pid="e" />
+%</nodes>
+%\end{lstlisting}
+%
+%With using \begin{footnotesize}pid\end{footnotesize}, node order doesn't matter. An implementation should manage the case when a node reference (pid) is used before the node declaration. This listings could also be:
+%
+%\lstset{ style=gexf }
+%\begin{lstlisting}[caption={Second way randomized},label=hierarchy22]
+%<nodes>
+%  <node id="g" label="frog2" pid="e" />
+%  <node id="a" label="Kevin Bacon" />
+%  <node id="c" label="human1" pid="b" />
+%  <node id="b" label="God" pid="a" />
+%  <node id="e" label="Me" pid="a" />
+%  <node id="d" label="human2" pid="b" />
+%  <node id="f" label="frog1" pid="e" />
+%</nodes>
+%\end{lstlisting}
 
 
 \section{Advanced Concepts II: Phylogeny structure} \label{hierarchy}
@@ -814,18 +819,18 @@ Discrete, it is an \textit{integer} or a \textit{double}. Continuous, it is enco
 
 Both network topology and data have a lifetime. The whole graph, each node, each edge and their respective data values may have time limits, beginning with an XML-attribute \begin{footnotesize}start\end{footnotesize} and ending with a \begin{footnotesize}end\end{footnotesize}. Omitting \begin{footnotesize}start\end{footnotesize} set the past of the thing to infinity, so as for \begin{footnotesize}end\end{footnotesize}. The file creator is responsible for the dates consistency.
 
-Non-inclusive intervals are available as well: \begin{footnotesize}startopen\end{footnotesize} and \begin{footnotesize}endopen\end{footnotesize}. One can mix an inclusive and a non-inclusive boundary, but declaring both \begin{footnotesize}start\end{footnotesize} and \begin{footnotesize}startopen\end{footnotesize}, or both \begin{footnotesize}end\end{footnotesize} and \begin{footnotesize}endopen\end{footnotesize} for the same element is forbidden.
+%Non-inclusive intervals are available as well: \begin{footnotesize}startopen\end{footnotesize} and \begin{footnotesize}endopen\end{footnotesize}. One can mix an inclusive and a non-inclusive boundary, but declaring both \begin{footnotesize}start\end{footnotesize} and \begin{footnotesize}startopen\end{footnotesize}, or both \begin{footnotesize}end\end{footnotesize} and \begin{footnotesize}endopen\end{footnotesize} for the same element is forbidden.
 
 \subsection{Example}
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={A (small) Dynamic Web Graph with continuous time},label=dynwebgraph]
-<?xml version="1.0" encoding="UTF-8"?>
-<gexf xmlns="http://www.gexf.net/1.2draft"
+<?xml version="1.1" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3draft"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.gexf.net/1.2draft
-                             http://www.gexf.net/1.2draft/gexf.xsd"
-      version="1.2">
+       xsi:schemaLocation="http://www.gexf.net/1.3draft
+                             http://www.gexf.net/1.3draft/gexf.xsd"
+      version="1.3">
   <meta lastmodifieddate="2009-03-20">
     <creator>Gephi.org</creator>
     <description>A Web network changing over time</description>
@@ -920,8 +925,7 @@ Important: \begin{footnotesize}start\end{footnotesize} and \begin{footnotesize}e
 <edge id="0" source="0" target="1" start="2009-01-20" end="2009-01-20"/>
 \end{lstlisting}
 
-And of course the \begin{footnotesize}end\end{footnotesize} value must be later than the \begin{footnotesize}start\end{footnotesize} value. Using a non-inclusive \begin{footnotesize}endopen\end{footnotesize} value implies to keep it strictly greater than the \begin{footnotesize}start\end{footnotesize} value.
-
+And of course the \begin{footnotesize}end\end{footnotesize} value must be later than the \begin{footnotesize}start\end{footnotesize} value. 
 \paragraph{}
 If a node or an edge exists only at some timeranges, we use the concept of spells. Spells are not provided for data values, which are only limited by one \begin{footnotesize}start\end{footnotesize} and one \begin{footnotesize}end\end{footnotesize}. Use the xml-element \begin{footnotesize}spells\end{footnotesize} for topology like this:
 
@@ -949,30 +953,24 @@ If the xml-attributes \begin{footnotesize}start\end{footnotesize} and \begin{foo
 graph-content &=
     attribute timeformat { timeformat-type }?
   & (
-      ( attribute start { time-type }?
-      | attribute startopen { time-type }?)
+      ( attribute start { time-type }?)
       &
-      ( attribute end { time-type }?
-      & attribute endopen { time-type }?)
+      ( attribute end { time-type }?)
   )
 
 # Extension Point
 node-content &= (
-      ( attribute start { time-type }?
-      | attribute startopen { time-type }?)
+      ( attribute start { time-type }?)
       &
-      ( attribute end { time-type }?
-      & attribute endopen { time-type }?)
+      ( attribute end { time-type }?)
   )
   & element spells { spells-content }?
 
 # Extension Point
 edge-content &= (
-      ( attribute start { time-type }?
-      | attribute startopen { time-type }?)
+      ( attribute start { time-type }?)
       &
-      ( attribute end { time-type }?
-      & attribute endopen { time-type }?)
+      ( attribute end { time-type }?)
   )
   & element spells { spells-content }?
 \end{lstlisting}
@@ -1004,11 +1002,9 @@ Node and edges data can take different values over time. Attributes must be decl
 \begin{lstlisting}[caption={Dynamic Attributes Specification},label=dyndataRNC]
 # Extension Point
 attributes-content &= (
-      ( attribute start { time-type }?
-      | attribute startopen { time-type }?)
+      ( attribute start { time-type }?)
       &
-      ( attribute end { time-type }?
-      & attribute endopen { time-type }?)
+      ( attribute end { time-type }?)
   )
 \end{lstlisting}
 
@@ -1026,26 +1022,24 @@ Attvalues have their scopes limited by the xml-attributes \begin{footnotesize}st
 </node>
 \end{lstlisting}
 
-\lstset{ style=gexf }
-\begin{lstlisting}[caption={Using open and closed intervals}]
-<node id="3" label="BarabasiLab">
-  <attvalues>
-    <attvalue for="2" value="15.0" start="2000" end="2005" />
-          <attvalue for="2" value="20.0" startopen="2005" endopen="2010" />
-          <attvalue for="2" value="25.0" start="2010" endopen="2015" />
-  </attvalues>
-</node>
-\end{lstlisting}
+%\lstset{ style=gexf }
+%\begin{lstlisting}[caption={Using open and closed intervals}]
+%<node id="3" label="BarabasiLab">
+%  <attvalues>
+%    <attvalue for="2" value="15.0" start="2000" end="2005" />
+%          <attvalue for="2" value="20.0" startopen="2005" endopen="2010" />
+%          <attvalue for="2" value="25.0" start="2010" endopen="2015" />
+%  </attvalues>
+%</node>
+%\end{lstlisting}
 
 \lstset{ style=rnc }
 \begin{lstlisting}[caption={Dynamic Values Specification},label=dynvalRNC]
 # Extension Point
 attributes-content &= (
-      ( attribute start { time-type }?
-      | attribute startopen { time-type }?)
+      ( attribute start { time-type }?)
       &
-      ( attribute end { time-type }?
-      & attribute endopen { time-type }?)
+      ( attribute end { time-type }?)
   )
 \end{lstlisting}
 
@@ -1123,11 +1117,9 @@ spells-content =
 
 # New Point
 spell-content = (
-      ( attribute start { time-type }?
-      | attribute startopen { time-type }?)
+      ( attribute start { time-type }?)
       &
-      ( attribute end { time-type }?
-      & attribute endopen { time-type }?)
+      ( attribute end { time-type }?)
   )
 \end{lstlisting}
 
@@ -1137,7 +1129,7 @@ GEXF is designed to be easily extensible. Additional namespaces are defined by a
 
 \subsection{VIZ module} \label{viz}
 
-Using the visualization module must be declared by adding the XML Attribute \begin{footnotesize}xmlns:viz="http://www.gexf.net/1.2draft/viz"\end{footnotesize} to the document namespaces. The \begin{footnotesize}xsi:schemaLocation\end{footnotesize} attribute includes the XML-Schema declaration of the VIZ module. The RelaxNG Compact specification is available in \href{http://www.gexf.net/1.2draft/viz.rnc}{viz.rnc}, and independent XSD declaration in \href{http://www.gexf.net/1.2draft/viz.xsd}{viz.xsd}.
+Using the visualization module must be declared by adding the XML Attribute \begin{footnotesize}xmlns:viz="http://www.gexf.net/1.3draft/viz"\end{footnotesize} to the document namespaces. The \begin{footnotesize}xsi:schemaLocation\end{footnotesize} attribute includes the XML-Schema declaration of the VIZ module. The RelaxNG Compact specification is available in \href{http://www.gexf.net/1.3draft/viz.rnc}{viz.rnc}, and independent XSD declaration in \href{http://www.gexf.net/1.3draft/viz.xsd}{viz.xsd}.
 
 Color, position, size and shape are stored as attributes.
 
@@ -1150,8 +1142,8 @@ The following gexf contains a node having a color, a position, a shape and a spe
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={VIZ Attributes},label=vizattr]
-<gexf xmlns="http://www.gexf.net/1.2draft"
-      xmlns:viz="http://www.gexf.net/1.2draft/viz">
+<gexf xmlns="http://www.gexf.net/1.3draft"
+      xmlns:viz="http://www.gexf.net/1.3draft/viz">
 ...
   <node ... >
     <viz:color r="239" g="173" b="66" a="0.5"/>
@@ -1169,8 +1161,8 @@ The following gexf contains an edge having a color, a thickness and a shape.
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={VIZ Attributes},label=vizattr]
-<gexf xmlns="http://www.gexf.net/1.2draft"
-      xmlns:viz="http://www.gexf.net/1.2draft/viz">
+<gexf xmlns="http://www.gexf.net/1.3draft"
+      xmlns:viz="http://www.gexf.net/1.3draft/viz">
 ...
   <edge ... >
     <viz:color r="157" g="213" b="78"/>
@@ -1183,15 +1175,22 @@ The following gexf contains an edge having a color, a thickness and a shape.
 
 \subsubsection{Colors}
 
-Colors are defined by the \href{http://en.wikipedia.org/wiki/RGBA}{RGBA color model}. Each XML-attribute value \begin{footnotesize}r\end{footnotesize}, \begin{footnotesize}g\end{footnotesize} or \begin{footnotesize}b\end{footnotesize} is hence an integer from 0 to 255, and the alpha value \begin{footnotesize}a\end{footnotesize} is a float from 0.0 to 1.0.
+Colors are either defined by the \href{http://en.wikipedia.org/wiki/RGBA}{RGBA color model} or by an html-like hex syntax. Each XML-attribute value \begin{footnotesize}r\end{footnotesize}, \begin{footnotesize}g\end{footnotesize} or \begin{footnotesize}b\end{footnotesize} is hence an integer from 0 to 255. Alternatively color can be defined as hex value \begin{footnotesize}hex\end{footnotesize} with or without the initial "\#" symbol.  In both cases an optional alpha value \begin{footnotesize}a\end{footnotesize} as a float from 0.0 to 1.0 can be added. 
 
 \lstset{ style=gexf }
-\begin{lstlisting}[caption={VIZ Color Declaration},label=vizcolor]
+\begin{lstlisting}[caption={VIZ Color Declaration RGB},label=vizcolor]
 <viz:color r="239" g="173" b="66" a="0.5"/>
+\end{lstlisting}
+
+\lstset{ style=gexf }
+\begin{lstlisting}[caption={VIZ Color Declaration HEX},label=vizcolor]
+<viz:color hex="#FF38AG" a="0.5"/>
 \end{lstlisting}
 
 \lstset{ style=rnc }
 \begin{lstlisting}[caption={Color Specification},label=colorRNC]
+
+% TO_DO add hex examples
 # Extension Point
 node-content &=
     element color { color-content }?
@@ -1344,7 +1343,7 @@ This section provides some good tips to write parser-friendly files.
  \item Always place the edges after the nodes, as it is mandatory since version 1.2. Some parsers, depending on their implementation, may reject an edge if its linked nodes haven't been declared before, due to conceptual or data integrity reason.
  \item Use the \textit{count} XML-attribute in \textit{nodes} and \textit{edges} declaration: the parser will know how much memory it should allocate, and will speed up the file reading. Note that count only refers to direct children, not the whole sub-graph!
  \item Prefer \textit{liststring} to \textit{string} attributes if you can. A smart parser will store the strings in one place, and just set pointers to them from the related nodes/edges.
- \item Identifiers may be interpreted as integers if you only use numbers. We encourage this practice, as an integer takes much less size in memory than an equivalent string. Tell the parser to optimize IDs storage by filling the optional graph XML-attribute called \textit{idtype} with ‚Äústring‚Äú or ‚Äúinteger‚Äú.
+ \item Identifiers may be interpreted as integers if you only use numbers. We encourage this practice, as an integer takes much less size in memory than an equivalent string. Tell the parser to optimize IDs storage by filling the optional graph XML-attribute called \textit{idtype} with "Äústring"Äú or "Äúinteger"Äú.
 \end{itemize}
 
 \section{Web Services} \label{ws}
@@ -1355,6 +1354,7 @@ The content-type for serving GEXF files via HTTP/REST is \textit{application/gex
 
 This document has been edited on:
 \begin{itemize}
+\item 29 December 2015 -- Changes to 1.3
 \item 28 March 2012 -- Add open interval example in section Defining Dynamic Values
 \item 29 Nov 2010 -- Initial release
 \end{itemize}
