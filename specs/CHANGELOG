@@ -11,7 +11,7 @@
 - open intervals "startopen" and "endopen" are no longer supported.
   
 ### Viz
-- viz:color now allows for a "hex" attribute to enable html like color encoding the initial "#" is optional
+- viz:color now allows for a "hex" attribute to enable html like color encoding. The initial "#" is optional
  
 
 ## 1.2draft - Gephi 0.8 compatible
