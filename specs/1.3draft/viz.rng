@@ -1,5 +1,7 @@
 <?xml version="1.1" encoding="UTF-8"?>
-<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <!-- extension point -->
   <define name="node-content" combine="interleave">
     <interleave>
@@ -48,15 +50,22 @@
   <!-- new point -->
   <define name="color-content">
     <interleave>
-      <attribute name="r">
-        <ref name="color-channel"/>
-      </attribute>
-      <attribute name="g">
-        <ref name="color-channel"/>
-      </attribute>
-      <attribute name="b">
-        <ref name="color-channel"/>
-      </attribute>
+      <choice>
+        <group>
+          <attribute name="r">
+            <ref name="color-channel"/>
+          </attribute>
+          <attribute name="g">
+            <ref name="color-channel"/>
+          </attribute>
+          <attribute name="b">
+            <ref name="color-channel"/>
+          </attribute>
+        </group>
+        <attribute name="hex">
+          <ref name="hex-color"/>
+        </attribute>
+      </choice>
       <optional>
         <attribute name="a">
           <ref name="alpha-channel"/>
@@ -69,20 +78,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -114,20 +113,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -153,20 +142,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -192,20 +171,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -236,20 +205,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -275,20 +234,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -348,5 +297,16 @@
   <!-- new datatype -->
   <define name="space-point">
     <data type="float"/>
+  </define>
+  <!-- new datatype -->
+  <define name="hex-color">
+    <choice>
+      <data type="hexBinary">
+        <param name="length">3</param>
+      </data>
+      <data type="string">
+        <param name="pattern">#[0-9a-fA-F]{6}</param>
+      </data>
+    </choice>
   </define>
 </grammar>
