@@ -16,20 +16,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -46,20 +36,10 @@
             <ref name="time-type"/>
           </attribute>
         </optional>
-        <optional>
-          <attribute name="startopen">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
       </choice>
       <interleave>
         <optional>
           <attribute name="end">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
-        <optional>
-          <attribute name="endopen">
             <ref name="time-type"/>
           </attribute>
         </optional>
@@ -75,20 +55,10 @@
             <ref name="time-type"/>
           </attribute>
         </optional>
-        <optional>
-          <attribute name="startopen">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
       </choice>
       <interleave>
         <optional>
           <attribute name="end">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
-        <optional>
-          <attribute name="endopen">
             <ref name="time-type"/>
           </attribute>
         </optional>
@@ -105,20 +75,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -141,20 +101,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -184,20 +134,10 @@
             <ref name="time-type"/>
           </attribute>
         </optional>
-        <optional>
-          <attribute name="startopen">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
       </choice>
       <interleave>
         <optional>
           <attribute name="end">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
-        <optional>
-          <attribute name="endopen">
             <ref name="time-type"/>
           </attribute>
         </optional>
