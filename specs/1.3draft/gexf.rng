@@ -142,6 +142,11 @@
           <data type="token"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="kind">
+          <data type="token"/>
+        </attribute>
+      </optional>
       <attribute name="source">
         <ref name="id-type"/>
       </attribute>
@@ -187,6 +192,7 @@
     <choice>
       <value type="string" datatypeLibrary="" a:defaultValue="static">static</value>
       <value type="string" datatypeLibrary="">dynamic</value>
+      <value type="string" datatypeLibrary="">slice</value>
     </choice>
   </define>
   <define name="weight-type">
