@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.1" encoding="UTF-8"?>
 <grammar ns="http://www.gexf.net/1.3draft" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:viz="http://www.gexf.net/1.3draft/viz" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <include href="data.rng">
     <a:documentation>Libraries</a:documentation>
@@ -17,7 +17,7 @@
     <a:documentation>Tree</a:documentation>
     <interleave>
       <attribute name="version">
-        <value type="string" datatypeLibrary="">1.2</value>
+        <value type="string" datatypeLibrary="">1.3</value>
       </attribute>
       <optional>
         <attribute name="variant">
