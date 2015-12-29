@@ -180,6 +180,7 @@
     <choice>
       <value type="string" datatypeLibrary="" a:defaultValue="string">integer</value>
       <value type="string" datatypeLibrary="">string</value>
+      <value type="string" datatypeLibrary="">long</value>
     </choice>
   </define>
   <define name="mode-type">
