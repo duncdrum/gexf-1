@@ -640,134 +640,134 @@ When it is applied to a liststring attribute, it gives all possible elements of 
 </node>
 \end{lstlisting}
 
-%\section{Advanced Concepts I: Hierarchy structure} \label{hierarchy}
-%
-%\subsection{Introduction}
-%
-%GEXF format allows creating hierarchical graph structure essentially for representing clustering. We model both a tree structure of ancestors and descendents, and a flat graph of nodes bound by edges.
-%
-%\begin{figure}[!ht]
-%  \begin{center}
-%  \includegraphics[width=10cm,keepaspectratio=true]{res/hierarchy.png}
-%  \caption{Graph tree with a virtual edge from a cluster to a leaf}
-%  \end{center}
-%\end{figure}
-%
-%\paragraph{}
-%Two ways are available:
-%\begin{enumerate}
-% \item Nodes can simply host other nodes and so on.
-% \item Each node refers to a parent node id with the XML-attribute \begin{footnotesize}pid\end{footnotesize}.
-%\end{enumerate}
-%
-%\lstset{ style=rnc }
-%\begin{lstlisting}[caption={Hierarchy Specification},label=hierarchyRNC]
-%# Extension Point
-%node-content &=
-%    attribute pid { id-type }?
-%  & element nodes { nodes-content }?
-%  & element edges { edges-content }?
-%\end{lstlisting}
-%
-%The first style is preferred when the structure written is previously ordered. Sequential reading of this kind of GEXF is safe because no node reference is used. But in the case your program can't provide this, the second way allows writing (and then reading) nodes randomly, but linear reading is at your own risks.
-%
-%\subsection{Sequential-safe Reading}
-%
-%\lstset{ style=gexf }
-%\begin{lstlisting}[caption={First way},label=hierarchy1]
-%    <graph mode="static" defaultedgetype="directed">
-%        <nodes>
-%          <node id="a" label="Kevin Bacon">
-%            <nodes>
-%              <node id="b" label="God">
-%                <nodes>
-%                  <node id="c" label="human1"/>
-%                  <node id="d" label="human2"/>
-%                </nodes>
-%              </node>
-%              <node id="e" label="Me">
-%                <nodes>
-%                  <node id="f" label="frog1"/>
-%                  <node id="g" label="frog2"/>
-%                </nodes>
-%              </node>
-%            </nodes>
-%          </node>
-%        </nodes>
-%        <edges>
-%            <edge id="0" source="b" target="e" />
-%            <edge id="1" source="c" target="d" />
-%            <edge id="2" source="g" target="b" />
-%            <edge id="3" source="f" target="a" />
-%        </edges>
-%    </graph>
-%\end{lstlisting}
-%
-%Note that edges are not necessarily written at the end:
-%\lstset{ style=gexf }
-%\begin{lstlisting}[caption={First way with edges inside clusters},label=hierarchy11]
-%    <graph mode="static" defaultedgetype="directed">
-%        <nodes>
-%          <node id="a" label="Kevin Bacon">
-%            <nodes>
-%              <node id="b" label="God">
-%                <nodes>
-%                  <node id="c" label="human1"/>
-%                  <node id="d" label="human2"/>
-%                </nodes>
-%                <edges>
-%                  <edge id="0" source="c" target="d" />
-%                </edges>
-%              </node>
-%              <node id="e" label="Me">
-%                <nodes>
-%                  <node id="f" label="frog1"/>
-%                  <node id="g" label="frog2"/>
-%                </nodes>
-%              </node>
-%            </nodes>
-%            <edges>
-%              <edge id="1" source="b" target="e" />
-%              <edge id="3" source="f" target="a" />
-%              <edge id="2" source="g" target="b" />
-%            </edges>
-%          </node>
-%        </nodes>
-%        <edges />
-%    </graph>
-%\end{lstlisting}
-%
-%\subsection{Random Writing}
-%
-%If you can't structurize your graph topology before writing a GEXF file, you may use the second style. Nodes sent to Gephi from a live data source, i.e. a web crawler, are written like this. Note that edges are always written randomly.
-%
-%\lstset{ style=gexf }
-%\begin{lstlisting}[caption={Second way},label=hierarchy2]
-%<nodes>
-%  <node id="a" label="Kevin Bacon" />
-%  <node id="b" label="God" pid="a" />
-%  <node id="c" label="human1" pid="b" />
-%  <node id="d" label="human2" pid="b" />
-%  <node id="e" label="Me" pid="a" />
-%  <node id="f" label="frog1" pid="e" />
-%  <node id="g" label="frog2" pid="e" />
-%</nodes>
-%\end{lstlisting}
-%
-%With using \begin{footnotesize}pid\end{footnotesize}, node order doesn't matter. An implementation should manage the case when a node reference (pid) is used before the node declaration. This listings could also be:
-%
-%\lstset{ style=gexf }
-%\begin{lstlisting}[caption={Second way randomized},label=hierarchy22]
-%<nodes>
-%  <node id="g" label="frog2" pid="e" />
-%  <node id="a" label="Kevin Bacon" />
-%  <node id="c" label="human1" pid="b" />
-%  <node id="b" label="God" pid="a" />
-%  <node id="e" label="Me" pid="a" />
-%  <node id="d" label="human2" pid="b" />
-%  <node id="f" label="frog1" pid="e" />
-%</nodes>
-%\end{lstlisting}
+\section{Advanced Concepts I: Hierarchy structure} \label{hierarchy}
+
+\subsection{Introduction}
+
+GEXF format allows creating hierarchical graph structure essentially for representing clustering. We model both a tree structure of ancestors and descendents, and a flat graph of nodes bound by edges.
+
+\begin{figure}[!ht]
+  \begin{center}
+  \includegraphics[width=10cm,keepaspectratio=true]{res/hierarchy.png}
+  \caption{Graph tree with a virtual edge from a cluster to a leaf}
+  \end{center}
+\end{figure}
+
+\paragraph{}
+Two ways are available:
+\begin{enumerate}
+ \item Nodes can simply host other nodes and so on.
+ \item Each node refers to a parent node id with the XML-attribute \begin{footnotesize}pid\end{footnotesize}.
+\end{enumerate}
+
+\lstset{ style=rnc }
+\begin{lstlisting}[caption={Hierarchy Specification},label=hierarchyRNC]
+# Extension Point
+node-content &=
+    attribute pid { id-type }?
+  & element nodes { nodes-content }?
+  & element edges { edges-content }?
+\end{lstlisting}
+
+The first style is preferred when the structure written is previously ordered. Sequential reading of this kind of GEXF is safe because no node reference is used. But in the case your program can't provide this, the second way allows writing (and then reading) nodes randomly, but linear reading is at your own risks.
+
+\subsection{Sequential-safe Reading}
+
+\lstset{ style=gexf }
+\begin{lstlisting}[caption={First way},label=hierarchy1]
+    <graph mode="static" defaultedgetype="directed">
+        <nodes>
+          <node id="a" label="Kevin Bacon">
+            <nodes>
+              <node id="b" label="God">
+                <nodes>
+                  <node id="c" label="human1"/>
+                  <node id="d" label="human2"/>
+                </nodes>
+              </node>
+              <node id="e" label="Me">
+                <nodes>
+                  <node id="f" label="frog1"/>
+                  <node id="g" label="frog2"/>
+                </nodes>
+              </node>
+            </nodes>
+          </node>
+        </nodes>
+        <edges>
+            <edge id="0" source="b" target="e" />
+            <edge id="1" source="c" target="d" />
+            <edge id="2" source="g" target="b" />
+            <edge id="3" source="f" target="a" />
+        </edges>
+    </graph>
+\end{lstlisting}
+
+Note that edges are not necessarily written at the end:
+\lstset{ style=gexf }
+\begin{lstlisting}[caption={First way with edges inside clusters},label=hierarchy11]
+    <graph mode="static" defaultedgetype="directed">
+        <nodes>
+          <node id="a" label="Kevin Bacon">
+            <nodes>
+              <node id="b" label="God">
+                <nodes>
+                  <node id="c" label="human1"/>
+                  <node id="d" label="human2"/>
+                </nodes>
+                <edges>
+                  <edge id="0" source="c" target="d" />
+                </edges>
+              </node>
+              <node id="e" label="Me">
+                <nodes>
+                  <node id="f" label="frog1"/>
+                  <node id="g" label="frog2"/>
+                </nodes>
+              </node>
+            </nodes>
+            <edges>
+              <edge id="1" source="b" target="e" />
+              <edge id="3" source="f" target="a" />
+              <edge id="2" source="g" target="b" />
+            </edges>
+          </node>
+        </nodes>
+        <edges />
+    </graph>
+\end{lstlisting}
+
+\subsection{Random Writing}
+
+If you can't structurize your graph topology before writing a GEXF file, you may use the second style. Nodes sent to Gephi from a live data source, i.e. a web crawler, are written like this. Note that edges are always written randomly.
+
+\lstset{ style=gexf }
+\begin{lstlisting}[caption={Second way},label=hierarchy2]
+<nodes>
+  <node id="a" label="Kevin Bacon" />
+  <node id="b" label="God" pid="a" />
+  <node id="c" label="human1" pid="b" />
+  <node id="d" label="human2" pid="b" />
+  <node id="e" label="Me" pid="a" />
+  <node id="f" label="frog1" pid="e" />
+  <node id="g" label="frog2" pid="e" />
+</nodes>
+\end{lstlisting}
+
+With using \begin{footnotesize}pid\end{footnotesize}, node order doesn't matter. An implementation should manage the case when a node reference (pid) is used before the node declaration. This listings could also be:
+
+\lstset{ style=gexf }
+\begin{lstlisting}[caption={Second way randomized},label=hierarchy22]
+<nodes>
+  <node id="g" label="frog2" pid="e" />
+  <node id="a" label="Kevin Bacon" />
+  <node id="c" label="human1" pid="b" />
+  <node id="b" label="God" pid="a" />
+  <node id="e" label="Me" pid="a" />
+  <node id="d" label="human2" pid="b" />
+  <node id="f" label="frog1" pid="e" />
+</nodes>
+\end{lstlisting}
 
 
 \section{Advanced Concepts II: Phylogeny structure} \label{hierarchy}
@@ -1184,7 +1184,7 @@ Colors are either defined by the \href{http://en.wikipedia.org/wiki/RGBA}{RGBA c
 
 \lstset{ style=gexf }
 \begin{lstlisting}[caption={VIZ Color Declaration HEX},label=vizcolor]
-<viz:color hex="#FF38AG" a="0.5"/>
+<viz:color hex="FF38AG" a="0.5"/>
 \end{lstlisting}
 
 \lstset{ style=rnc }
