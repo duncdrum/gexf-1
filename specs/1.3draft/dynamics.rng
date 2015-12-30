@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<grammar ns="http://www.gexf.net/1.2draft" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<?xml version="1.1" encoding="UTF-8"?>
+<grammar ns="http://www.gexf.net/1.3draft" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
   <!-- extension point -->
   <define name="graph-content" combine="interleave">
     <a:documentation>Note: dynamic weight can be obtained by using the reserved title "weight" in attributes</a:documentation>
@@ -16,20 +16,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -46,20 +36,10 @@
             <ref name="time-type"/>
           </attribute>
         </optional>
-        <optional>
-          <attribute name="startopen">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
       </choice>
       <interleave>
         <optional>
           <attribute name="end">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
-        <optional>
-          <attribute name="endopen">
             <ref name="time-type"/>
           </attribute>
         </optional>
@@ -75,20 +55,10 @@
             <ref name="time-type"/>
           </attribute>
         </optional>
-        <optional>
-          <attribute name="startopen">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
       </choice>
       <interleave>
         <optional>
           <attribute name="end">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
-        <optional>
-          <attribute name="endopen">
             <ref name="time-type"/>
           </attribute>
         </optional>
@@ -105,20 +75,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -141,20 +101,10 @@
               <ref name="time-type"/>
             </attribute>
           </optional>
-          <optional>
-            <attribute name="startopen">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
         </choice>
         <interleave>
           <optional>
             <attribute name="end">
-              <ref name="time-type"/>
-            </attribute>
-          </optional>
-          <optional>
-            <attribute name="endopen">
               <ref name="time-type"/>
             </attribute>
           </optional>
@@ -184,20 +134,10 @@
             <ref name="time-type"/>
           </attribute>
         </optional>
-        <optional>
-          <attribute name="startopen">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
       </choice>
       <interleave>
         <optional>
           <attribute name="end">
-            <ref name="time-type"/>
-          </attribute>
-        </optional>
-        <optional>
-          <attribute name="endopen">
             <ref name="time-type"/>
           </attribute>
         </optional>

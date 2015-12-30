@@ -1,3 +1,19 @@
+## 1.3draft - Gephi 0.9 compatible
+
+- xml version is now 1.1 
+
+###Graph Sturcture 
+- allow datatype "long" for id-type attributes
+- in addition to "static" and "dynamic" a new mode "slice" has been added for dynamic graphs split over multiple-files
+- edges can now have a "kind" attribute to better describe them in multi-graphs
+
+### Dynamics
+- open intervals "startopen" and "endopen" are no longer supported.
+  
+### Viz
+- viz:color now allows for a "hex" attribute to enable html like color encoding. The initial "#" is optional
+ 
+
 ## 1.2draft - Gephi 0.8 compatible
 
 ### Graph structure
