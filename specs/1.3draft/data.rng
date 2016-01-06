@@ -96,6 +96,7 @@
       <value type="string" datatypeLibrary="">liststring</value>
       <value type="string" datatypeLibrary="">string</value>
       <value type="string" datatypeLibrary="">anyURI</value>
+      <value type="string" datatypeLibrary="">hexBinary</value>
     </choice>
   </define>
   <!-- new datatype -->
