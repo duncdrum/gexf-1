@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gexf xmlns="http://www.gephi.org/gexf" xmlns:viz="http://www.gephi.org/gexf/viz">
+<?xml version="1.1" encoding="UTF-8"?>
+
+<?xml-model href="../../specs/1.3draft/gexf.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../specs/1.3draft/gexf.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<gexf>
 	<graph type="static">
 		<attributes class="node" type="static">
 			<attribute id="0" title="nodedef" type="string"/>

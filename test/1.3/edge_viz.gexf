@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http:///www.gexf.net/1.1draft/viz">
+<?xml version="1.1" encoding="UTF-8"?>
+
+<?xml-model href="../../specs/1.3draft/gexf.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="../../specs/1.3draft/gexf.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<gexf version="1.3" xmlns="http://www.gexf.net/1.3draft" xmlns:viz="http:///www.gexf.net/1.3draft/viz">
 	<meta lastmodifieddate="2010-05-29+01:27">
 		<Creator>Yomguithereal</Creator>
 		<Title>An edge viz test graph</Title>
